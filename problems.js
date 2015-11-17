@@ -1,3 +1,42 @@
+// Problem 1
+/* If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. 
+   The sum of these multiples is 23.
+   Find the sum of all the multiples of 3 or 5 below 1000. */
+
+function getSum() {
+  var sum = 0,
+      sum_3 = 0,
+      sum_5 = 0,
+      sum_15 = 0,
+      a=1, b=1, c=1,
+      arrSum_3 = [],
+      arrSum_5 = [];
+
+  while (sum_3 < 1000) {
+    // arrSum_3.push(sum_3);
+    sum += sum_3;
+    sum_3 = 3 * a;
+    a++
+  }
+
+  while (sum_5 < 1000) {
+    // arrSum_5.push(sum_5);
+    sum += sum_5;
+    sum_5 = 5 * b;
+    b++
+  }
+
+  while (sum_15 < 1000) {
+    sum -= sum_15;
+    sum_15 = 15 * c;
+    c++
+  }
+
+  return sum;
+}
+// 266333?
+
+
 // Problem 2 - https://projecteuler.net/problem=2
 function getFibonacci() {
   var i = 1,
@@ -62,51 +101,38 @@ function ifPali(num) {
 
   for (i=0; i < length/2; i++) {
     if (paliArr[i] === paliArr[length-(i + 1)]) {
-      console.log("gut!");
     } else {
-      console.log("oops!");
       return false;
     }
   }
   return true;
 }
 
-// JOPA
-// function getLargest() {
-//   var a=999,
-//       b,
-//       c,
-//       q=1;
+function getLargest() {
+  var a=999,
+      b,
+      c,
+      q=1;
 
-//   while (a => 900) {
-//     b = a;
+  while (a >= 100) {
+    b = a;
 
-//     while (b => 900) {
-//       c = (a * b);
+    while (b >= 100) {
+      c = (a * b);
 
-//       if (ifPali(c.toString())) {
-//         console.log("a="+ a + " b="+ b + " Here comes Pali: " + c);
-//         (c > q) && (q = c);
-//       }
-//       b--
-//     }
+      if ( ifPali(c.toString()) ) {
+        console.log("a="+ a + " b="+ b + " Here comes Pali: " + c);
+        (c > q) && (q = c);
+      }
+      b--
+    }
 
-//     a--
-//   }
-//   return q;
-// }
+    a--
+  }
+  return q;
+}
+// 906609
 
-// for (a=999; a<=100; a--) {
-//   for (b=a; b<=100; b--) {
-//     c = (a * b);
-
-//     if (ifPali(c.toString())) {
-//       console.log("a="+ a + " b="+ b + " Here comes Pali: " + c);
-//       (c > q) && (q = c);
-//     }
-//   }
-//   console.log("a=" + a)
-// }
 
 /* 
   Problem 5
@@ -161,3 +187,14 @@ function checkIfPrime(num, arr) {
   return true;
 }
 // 104743
+
+/* 
+  Problem 8
+  Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+*/
+function find13biggest() {
+  var number = "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450";
+  var arrNum = number.split("");
+  
+}
+
