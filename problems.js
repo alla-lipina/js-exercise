@@ -190,3 +190,26 @@ function productOf13() {
   There exists exactly one Pythagorean triplet for which a + b + c = 1000.
   Find the product abc.
 */
+
+function getPythagorean() {
+  var a,b,c;
+
+  // a = 1000 - b - c
+
+  for (c=3; c<1000; c++) {  
+    for (b=2; b<c; b++) {
+      a = 1000 - b - c;
+      if (Math.pow(a,2) + Math.pow(b,2) == Math.pow(c,2)) {
+        console.log( a, b, c);
+        return a*b*c;
+      }
+    }
+  }
+}
+
+/*
+  Problem 10
+  The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+  Find the sum of all the primes below two million.
+*/
