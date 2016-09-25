@@ -38,7 +38,11 @@ it takes a second argument that indicates the character that is to be counted
  this new function.
 */
 
-function countBs(str){}
-
-
-
+function countChar(str, letter) {
+  var i = 0, n = 0;
+  while (i < str.length) {
+    str.charAt(i) == letter && n++
+    i++
+  }
+  return n
+}
