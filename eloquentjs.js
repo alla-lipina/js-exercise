@@ -46,3 +46,77 @@ function countChar(str, letter) {
   }
   return n
 }
+
+
+/*
+*/
+function range(start, end, step) {
+  var i = start
+      j = end, 
+      array = [];
+
+  if (start < end) {
+    while (i <= j) {
+      array.push(i)
+      step !== undefined ? i = i + step : i++
+    }
+  } else if (step !== undefined && start > end) {
+    while (i >= j) {
+      array.push(i)
+      i = i + step;
+    }
+  }
+
+  return array;
+}
+
+function sum(arr) {
+  return arr.reduce(function(prev, next) {return prev+next})
+}
+
+
+/*
+Arrays have a method reverse, which changes the array by inverting 
+the order in which its elements appear. For this exercise, write 
+two functions, reverseArray and reverseArrayInPlace. The  rst, reverseArray, 
+takes an array as argument and produces a new array that has the same 
+elements in the inverse order. 
+The second, reverseArrayInPlace, does what 
+the reverse method does: it modi es the array given as argument in order 
+to reverse its elements. Neither may use the standard reverse method.
+*/
+function reverseArray(arr) {
+  var newArr = [];
+
+  for (var i=0; i < arr.length; i++) {
+    newArr.unshift(arr[i])
+  }
+
+  return newArr;
+}
+
+
+function reverseArrayInPlace(arr) {
+  var co,
+      totalEl = arr.length;
+
+  for (var i=totalEl-1; i >= 0; i--) {
+    arr.push(arr[i])
+  }
+
+  return arr.slice(totalEl)
+}
+
+/*
+Write a function arrayToList that builds up a data structure 
+like the previous one when given [1, 2, 3] as argument, and 
+write a listToArray function that produces an array from a list. 
+Also write the helper functions prepend, which takes an element 
+and a list and creates a new list that adds the element to the 
+front of the input list, and nth, which takes a list and a number 
+and returns the element at the given position
+in the list, or undefined when there is no such element.
+If you haven’t already, also write a recursive version of nth.
+*/
+
+
